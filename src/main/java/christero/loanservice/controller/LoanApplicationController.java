@@ -15,14 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-
 @RestController
 @RequestMapping("/api/v1/application")
 public class LoanApplicationController {
 
     private final LoanApplicationService loanApplicationService;
-    private static final Logger logger = LoggerFactory.getLogger(LoanApplicationService.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoanApplicationController.class);
 
     @Autowired
     public LoanApplicationController(LoanApplicationService loanApplicationService) {
@@ -41,7 +39,6 @@ public class LoanApplicationController {
     public ResponseEntity<LoanApplicationStatusResponseDTO> getStatus(@PathVariable String applicationId) {
         try {
             var loanApplication = loanApplicationService.getApplicationById(applicationId);
-
             logger.info("Loan application status retrieved for ID {}", applicationId);
 
             return ResponseEntity.ok(LoanMapper.INSTANCE.mapModelToStatusResponseDto(loanApplication));
