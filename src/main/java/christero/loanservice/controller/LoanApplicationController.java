@@ -7,6 +7,7 @@ import christero.loanservice.exception.LoanApplicationNotFoundException;
 import christero.loanservice.mapper.LoanMapper;
 import christero.loanservice.model.LoanApplication;
 import christero.loanservice.service.LoanApplicationService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class LoanApplicationController {
     }
 
     @PostMapping()
-    public LoanApplicationReponseDTO applyForLoan(@RequestBody LoanApplicationRequestDTO dto) {
+    public LoanApplicationReponseDTO applyForLoan(@Valid @RequestBody LoanApplicationRequestDTO dto) {
         LoanApplication loanApplication = loanApplicationService.applyForLoan(dto);
         return LoanMapper.INSTANCE.mapModelToResponseDto(loanApplication);
     }
