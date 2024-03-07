@@ -53,7 +53,7 @@ public class LoanApplicationServiceTest {
     }
 
     @Test
-    public void applyForLoan_ShouldSaveApplicationWithGeneratedIdAndReceivedStatus() {
+    void applyForLoan_ShouldSaveApplicationWithGeneratedIdAndReceivedStatus() {
         LoanApplicationRequestDTO requestDTO = new LoanApplicationRequestDTO();
 
         LoanApplication result = loanApplicationService.applyForLoan(requestDTO);

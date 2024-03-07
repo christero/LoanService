@@ -36,7 +36,7 @@ public class LoanLoanApplicationRepositoryTest {
     }
 
     @Test
-    public void saveLoanApplication_shouldSaveApplicationW() {
+    void saveLoanApplication_shouldSaveApplicationW() {
         LoanApplication loanApplication = new LoanApplication();
         loanApplication.setApplicationID("test123");
         loanApplication.setLoanAmount(1000.0);

@@ -21,19 +21,17 @@ public class LoanApplicationService {
         this.loanApplicationRepository = loanApplicationRepository;
     }
 
-    public LoanApplication getApplicationById(String applicationId)
-    {
+    public LoanApplication getApplicationById(String applicationId) {
         var loanApplication = loanApplicationRepository.getLoanApplicationById(applicationId);
 
         if (loanApplication == null) {
-             throw new LoanApplicationNotFoundException("Loan application with ID " + applicationId + " not found");
+            throw new LoanApplicationNotFoundException("Loan application with ID " + applicationId + " not found");
         }
 
-       return loanApplication;
+        return loanApplication;
     }
 
-    public LoanApplication applyForLoan(LoanApplicationRequestDTO loanApplicationRequestDTO)
-    {
+    public LoanApplication applyForLoan(LoanApplicationRequestDTO loanApplicationRequestDTO) {
         if (loanApplicationRequestDTO == null) {
             throw new IllegalArgumentException("loanApplicationApplyRequestDTO cannot be null");
         }

@@ -39,7 +39,7 @@ public class LoanApplicationController {
     public ResponseEntity<LoanApplicationStatusResponseDTO> getStatus(@PathVariable String applicationId) {
         try {
             var loanApplication = loanApplicationService.getApplicationById(applicationId);
-            logger.info("Loan application status retrieved for ID {}", applicationId);
+            logger.info("Loan application status retrieved for ID: {}", applicationId);
 
             return ResponseEntity.ok(LoanMapper.INSTANCE.mapModelToStatusResponseDto(loanApplication));
         } catch (LoanApplicationNotFoundException e) {
